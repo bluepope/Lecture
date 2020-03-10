@@ -14,7 +14,7 @@ namespace Lecture.DapperDemo2
 {
     public partial class Form1 : Form
     {
-        BindingList<BoardModel> _list = new BindingList<BoardModel>();
+        BindingList<BoardModel2> _list = new BindingList<BoardModel2>();
 
         public Form1()
         {
@@ -25,14 +25,14 @@ namespace Lecture.DapperDemo2
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            var item = (sender as DataGridView).Rows[e.RowIndex].DataBoundItem as BoardModel;
+            var item = (sender as DataGridView).Rows[e.RowIndex].DataBoundItem as BoardModel2;
             if ((item.isNew || item.isEdit) == false)
                 item.isEdit = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _list = new BindingList<BoardModel>(BoardModel.GetList(""));
+            _list = new BindingList<BoardModel2>(BoardModel2.GetList(""));
             dataGridView1.DataSource = _list;
         }
 
@@ -50,16 +50,16 @@ namespace Lecture.DapperDemo2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            _list.Add(new BoardModel() { isNew = true });
+            _list.Add(new BoardModel2() { isNew = true });
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var deleteList = new List<BoardModel>();
+            var deleteList = new List<BoardModel2>();
 
             foreach(DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                var model = row.DataBoundItem as BoardModel;
+                var model = row.DataBoundItem as BoardModel2;
 
                 row.Selected = false;
 
@@ -76,8 +76,6 @@ namespace Lecture.DapperDemo2
 
             foreach (var item in deleteList)
                 _list.Remove(item);
-
-
         }
     }
 }
