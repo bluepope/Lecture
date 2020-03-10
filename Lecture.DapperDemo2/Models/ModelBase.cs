@@ -13,6 +13,11 @@ namespace Lecture.DapperDemo2.Models
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        protected virtual T GetProperty<T>([CallerMemberName] string propertyName = null)
+        {
+            return (T)this.GetType().GetField($"_{propertyName}", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(this);
+        }
+
         protected virtual bool SetProperty(object value, [CallerMemberName] string propertyName = null)
         {
             this.GetType().GetField($"_{propertyName}", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(this, value);
