@@ -10,7 +10,7 @@ namespace Lecture.Lib.Database
 {
     public class SqlDapperHelper : IDisposable
     {
-        const string _connectionString = "Server=--;Database=--;User ID=--;Password=--;";
+        const string _connectionString = "Server=192.168.0.200;Database=lecture;User ID=study;Password=study2020!!;";
         SqlConnection _conn = null;
         SqlTransaction _tran = null;
 
