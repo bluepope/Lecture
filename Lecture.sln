@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture.DapperDemo2", "Lect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture.Lib", "Lecture.Lib\Lecture.Lib.csproj", "{3AF1EC2B-4CDB-4896-97D4-F02FADD11563}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture.DapperWebDemo", "Lecture.DapperWebDemo\Lecture.DapperWebDemo.csproj", "{09652564-3950-47F5-80FF-86A339F9BEB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3AF1EC2B-4CDB-4896-97D4-F02FADD11563}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AF1EC2B-4CDB-4896-97D4-F02FADD11563}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AF1EC2B-4CDB-4896-97D4-F02FADD11563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09652564-3950-47F5-80FF-86A339F9BEB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09652564-3950-47F5-80FF-86A339F9BEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09652564-3950-47F5-80FF-86A339F9BEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09652564-3950-47F5-80FF-86A339F9BEB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
