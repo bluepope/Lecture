@@ -11,7 +11,7 @@ namespace Lecture.DapperDemo2.Models
         public bool isDelete { get => GetProperty<bool>(); set => SetProperty(value); }
 
         public decimal SEQ { get => GetProperty<decimal>(); set => SetProperty(value); }
-        public string TITLE { get; set; }
+        public string TITLE { get => GetProperty<string>(); set => SetProperty(value); }
         public string CONTENTS { get; set; }
         public decimal REG_U_ID { get; set; }
         public string REG_NAME { get; set; }

@@ -77,5 +77,18 @@ namespace Lecture.DapperDemo2
             foreach (var item in deleteList)
                 _list.Remove(item);
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            _ = Task.Run(async () => {
+                for(int i=0; i < 5; i++)
+                {
+                    var r = new Random().Next(_list.Count() - 1);
+
+                    _list[r].TITLE = new Random().Next(10000000).ToString();
+                    await Task.Delay(1000);
+                }
+            });
+        }
     }
 }

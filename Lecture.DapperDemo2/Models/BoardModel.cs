@@ -15,9 +15,12 @@ namespace Lecture.DapperDemo2.Models
         bool _isDelete = false;
         public bool isDelete { get => _isDelete; set => SetProperty(value); }
 
-        decimal _seq;
-        public decimal SEQ { get => _seq; set => SetProperty(value); }
-        public string TITLE { get; set; }
+        decimal _SEQ = 0;
+        public decimal SEQ { get => _SEQ; set => SetProperty(value); }
+
+        string _TITLE { get; set; }
+        public string TITLE { get => _TITLE; set => SetProperty(value); }
+
         public string CONTENTS { get; set; }
         public decimal REG_U_ID { get; set; }
         public string REG_NAME { get; set; }
