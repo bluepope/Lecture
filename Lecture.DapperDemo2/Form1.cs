@@ -14,8 +14,6 @@ namespace Lecture.DapperDemo2
 {
     public partial class Form1 : Form
     {
-        BindingList<BoardModel2> _list = new BindingList<BoardModel2>();
-
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +21,7 @@ namespace Lecture.DapperDemo2
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
         }
 
+        //cellvaluechanged 를 통해서 변화를 감지
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             var item = (sender as DataGridView).Rows[e.RowIndex].DataBoundItem as BoardModel2;
@@ -32,13 +31,12 @@ namespace Lecture.DapperDemo2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _list = new BindingList<BoardModel2>(BoardModel2.GetList(""));
-            dataGridView1.DataSource = _list;
+            dataGridView1.DataSource = new BindingList<BoardModel2>(BoardModel2.GetList(""));
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            foreach(var item in _list)
+            foreach(var item in dataGridView1.DataSource as BindingList<BoardModel2>)
             {
                 /*
                 if (item.isNew) item.Insert();
@@ -50,11 +48,12 @@ namespace Lecture.DapperDemo2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            _list.Add(new BoardModel2() { isNew = true });
+            (dataGridView1.DataSource as BindingList<BoardModel2>).Add(new BoardModel2() { isNew = true });
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            var list = dataGridView1.DataSource as BindingList<BoardModel2>;
             var deleteList = new List<BoardModel2>();
 
             foreach(DataGridViewRow row in dataGridView1.SelectedRows)
@@ -70,22 +69,23 @@ namespace Lecture.DapperDemo2
                 else
                 {
                     model.isDelete = true;
-                    row.Visible = false;
                 }
             }
 
             foreach (var item in deleteList)
-                _list.Remove(item);
+                list.Remove(item);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            var list = dataGridView1.DataSource as BindingList<BoardModel2>;
+
             _ = Task.Run(async () => {
                 for(int i=0; i < 5; i++)
                 {
-                    var r = new Random().Next(_list.Count() - 1);
+                    var r = new Random().Next(list.Count() - 1);
 
-                    _list[r].TITLE = new Random().Next(10000000).ToString();
+                    list[r].TITLE = new Random().Next(10000000).ToString();
                     await Task.Delay(1000);
                 }
             });
