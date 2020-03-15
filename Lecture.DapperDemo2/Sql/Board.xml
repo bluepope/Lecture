@@ -1,0 +1,8 @@
+﻿<mapper>
+	<select id="GetBoardList">
+		<![CDATA[
+SELECT *
+FROM T_BOARD
+		]]>
+	</select>
+</mapper>

@@ -30,8 +30,30 @@
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+<button id="btn1" class="btn btn-sm btn-primary">테스트 예제</button>
 
-@foreach(var item in Model)
+@foreach (var item in Model)
 {
-    <div>@item.TITLE</div>
+    <div>@item.CONTENTS</div>
 }
+
+<script>
+    $("#btn1").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/home/BoardInput",
+            dataType: "json",
+            data: {
+                input: {
+                    title: "추가된 타이틀 입니다",
+                    contents: "컨텐츠 내용입니다"
+                }
+            },
+            success: function (data, status, xhr) {
+                alert(data.msg);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+            }
+        });
+    });
+</script>

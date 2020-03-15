@@ -1,15 +1,32 @@
-﻿using System;
+﻿using Lecture.Lib.Database;
+using System;
 using System.Collections.Generic;
-using Lecture.Lib.Database;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Lecture.DapperWebDemo.Models
+namespace Winform1.Models
 {
-    public class BoardModel
-    {
+
+    public class BoardModel : ModelBase
+    {        
         public int SEQ { get; set; }
 
-        public string TITLE { get; set; }
-        public string CONTENTS { get; set; }
+        string _title;
+        public string TITLE
+        {
+            get => _title;
+            set => Set(ref _title, value);
+        }
+        
+        string _contents;
+        public string CONTENTS
+        {
+            get => _contents;
+            set => Set(ref _contents, value);
+        }
 
         public int REG_U_ID { get; set; }
         public string REG_NAME { get; set; }
@@ -23,7 +40,7 @@ namespace Lecture.DapperWebDemo.Models
             {
                 search = search.Trim();
             }
-
+            
             string sql = @"
 SELECT
 	A.SEQ
@@ -40,6 +57,10 @@ WHERE
 	A.TITLE LIKE @search + '%'
 ";
             var list = db.Query<BoardModel>(sql, new { search = search });
+            foreach(var item in list)
+            {
+                item.ChangedFlag = ChangedFlagEnum.None;
+            }
 
             return list;
         }
