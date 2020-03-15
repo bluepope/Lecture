@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Winform1
+namespace Lecture.Winform1
 {
     static class Program
     {

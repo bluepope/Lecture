@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Winform1.Models
+namespace Lecture.Winform1.Models
 {
     public enum ChangedFlagEnum
     {

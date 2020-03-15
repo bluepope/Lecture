@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Winform1.Models;
+using Lecture.Winform1.Models;
 
-namespace Winform1
+namespace Lecture.Winform1
 {
     public partial class Form1 : Form
     {

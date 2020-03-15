@@ -1,4 +1,4 @@
-﻿namespace Winform1
+﻿namespace Lecture.Winform1
 {
     partial class Form1
     {
